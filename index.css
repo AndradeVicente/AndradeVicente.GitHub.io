@@ -1,43 +1,69 @@
-/* This is an example CSS file. If you include it in your portfolio, it'll provide some clean and basic styling */
-/* for your page. Feel free to experiment with the values, or copy them into a new file and use that instead. */
 
-/* These are comments in CSS. Comments don't do anything except explain your working to make code easier to understand. */
-
-
-body { /* We can style any HTML element by using its name - here we're styling the body */
-  /* We want text that uses a clean sans-serif font, is usually 16px big and close to black */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body { 
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
   color: #333;
   line-height: 1.6;
-  /* we want a white page, that's centered and not too wide */
-  background-color: #fff;
+  background-color: #F8F3F0;
   margin:0 auto;
   max-width: 800px;
-  padding-top: 60px;
+  padding-top: 0px;
 }
+
 
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h2, h4, h5, h6 {
   color: #333;
-  margin-top: 24px;
+  margin-top: 8px;
   margin-bottom: 16px;
   font-weight: 600;
+  font-family: 'Playfair Display';
+  color: #065f46;
+  background-color: #F8F3F0;
+  max-width: 800px;
 }
+
+h1 {
+  color: #333;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-family: 'Roboto Condensed';
+  color: #065f46;
+  background-color: #F8F3F0;
+  max-width: 800px;
+  font-size: 30px;
+}
+
+
+h3 {
+  color: #333;
+  font-weight: 600;
+  font-family: 'Roboto Condensed', serif;
+  color: #065f46;
+  background-color: #F8F3F0;
+  max-width: 800px;
+}
+
+a {
+  color: #065f46;
+  font-weight: 800;
+}
+
+
+.links {
+  margin-top: -8px; 
+}
+
+
 
 /* We want the headings to be a little bigger than the paragraph text */
 .big { /* This is the class we created in the HTML file, you can use it to style any element */
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
-h2 {
-  font-size: 1.75em;
-}
 
-.small {
-  font-size: 1.25em;
-}
 
 /* Paragraph */
 p {
@@ -51,17 +77,32 @@ section {
 
 /* Links */
 /* We want the links to be a little more visible  and a different color */
-a {
-  color: #065f46;
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-}
+
   
 /* Images */
-img {
-  max-width: 100%;
-  height: auto;
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os projetos "quebrem linha" se necessário */
+  gap: 20px; /* Espaçamento entre os projetos */
+  justify-content: center; /* Centraliza os projetos horizontalmente */
 }
+
+.project {
+  flex: 1 1 calc(45% - 20px); /* Cada projeto ocupa 45% da largura menos o gap */
+  max-width: 400px; /* Limita o tamanho máximo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  padding: 10px;
+  text-align: center; /* Centraliza o conteúdo */
+  background-color: #F8F3F0; /* Adiciona um fundo branco (opcional) */
+  border-radius: 5px; /* Bordas arredondadas (opcional) */
+}
+
+.project img {
+  max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
+  height: auto;
+  border-radius: 5px; /* Bordas arredondadas para a imagem (opcional) */
+}
+
+

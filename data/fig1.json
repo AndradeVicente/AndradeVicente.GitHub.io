@@ -1,0 +1,107 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"Ano": 2012, "grupo": "taxa_negros", "taxa": 37},
+        {"Ano": 2012, "grupo": "taxa_nao_negros", "taxa": 15.9},
+        {"Ano": 2013, "grupo": "taxa_negros", "taxa": 36.8},
+        {"Ano": 2013, "grupo": "taxa_nao_negros", "taxa": 15.6},
+        {"Ano": 2014, "grupo": "taxa_negros", "taxa": 39},
+        {"Ano": 2014, "grupo": "taxa_nao_negros", "taxa": 16},
+        {"Ano": 2015, "grupo": "taxa_negros", "taxa": 37.9},
+        {"Ano": 2015, "grupo": "taxa_nao_negros", "taxa": 16.2},
+        {"Ano": 2016, "grupo": "taxa_negros", "taxa": 40.2},
+        {"Ano": 2016, "grupo": "taxa_nao_negros", "taxa": 16.1},
+        {"Ano": 2017, "grupo": "taxa_negros", "taxa": 43.1},
+        {"Ano": 2017, "grupo": "taxa_nao_negros", "taxa": 14},
+        {"Ano": 2018, "grupo": "taxa_negros", "taxa": 37.6},
+        {"Ano": 2018, "grupo": "taxa_nao_negros", "taxa": 11.3},
+        {"Ano": 2019, "grupo": "taxa_negros", "taxa": 29},
+        {"Ano": 2019, "grupo": "taxa_nao_negros", "taxa": 11.5},
+        {"Ano": 2020, "grupo": "taxa_negros", "taxa": 32.2},
+        {"Ano": 2020, "grupo": "taxa_nao_negros", "taxa": 11.3},
+        {"Ano": 2021, "grupo": "taxa_negros", "taxa": 31},
+        {"Ano": 2021, "grupo": "taxa_nao_negros", "taxa": 10.8},
+        {"Ano": 2022, "grupo": "taxa_negros", "taxa": 29.7},
+        {"Ano": 2022, "grupo": "taxa_nao_negros", "taxa": 10.8}
+      ]
+    },
+    "width": 600,
+    "height": 400,
+    "mark": {
+      "type": "line",
+      "strokeWidth": 1.5
+    },
+    "encoding": {
+      "x": {
+        "field": "Ano",
+        "type": "ordinal",
+        "axis": {
+          "title": null,
+          "values": [2012, 2014, 2016, 2018, 2020, 2022],
+          "labelAngle": 0,
+          "labelFont": "Franklin-Regular",
+          "labelColor": "#065f46"
+        }
+      },
+      "y": {
+        "field": "taxa",
+        "type": "quantitative",
+        "axis": {
+          "title": "Homicides per 100k inhabitants",
+          "titleFont": "Franklin-Regular",
+          "titleColor": "#065f46",
+          "labelFont": "Franklin-Regular",
+          "labelColor": "#065f46",
+          "grid": true
+        },
+        "scale": {
+          "domain": [0, 50]
+        }
+      },
+      "color": {
+        "field": "grupo",
+        "type": "nominal",
+        "scale": {
+          "domain": ["taxa_nao_negros", "taxa_negros"],
+          "range": ["#e9d8a6", "#ae2012"]
+        },
+        "legend": {
+          "title": null,
+          "orient": "top",
+          "labelFontSize": 12,
+          "labelFont": "Franklin-Regular",
+          "labelExpr": "datum.label === 'taxa_nao_negros' ? 'White' : 'Black '"
+        }
+      }
+    },
+    "title": {
+      "text": "Homicide Rates of Black and Non-Black Individuals in Brazil (2012–2022)",
+      "fontSize": 22,
+      "font": "Stilson-Regular",
+      "color": "#065f46"
+    },
+    "subtitle": {
+      "text": "A comparative analysis of homicides per 100k inhabitants",
+      "fontSize": 15,
+      "font": "Franklin-Regular",
+      "color": "#4b4b4b",
+      "align": "left"
+    },
+    "config": {
+      "background": "#F8F3F0",
+      "axis": {
+        "labelFont": "Franklin-Regular",
+        "labelColor": "#4b4b4b",
+        "titleFont": "Franklin-Regular",
+        "titleColor": "#4b4b4b"
+      },
+      "legend": {
+        "titleFont": "Franklin-Regular",
+        "titleColor": "#065f46",
+        "labelFont": "Franklin-Regular",
+        "labelColor": "#065f46"
+      }
+    }
+  }
+  

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="project.css">
+    <title>Political Representation</title> 
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+   
+</head>
+
+<body>
+    <h1 style="margin-bottom: 0px;">
+        What Happens When a Black Mayor Wins an Election?
+    </h1>
+    
+    <h2 style="margin-bottom: 0px;">
+        Introduction:
+    </h2>
+    <p style="text-align: justify;">
+        Political representation can influence societal outcomes, yet the impact of Black leadership remains underexplored. Brazil, with its 5,570 municipalities and extensive public data from TSE and DATASUS, provides a valuable setting for such studies. This work examines whether the election of Black mayors affects violence levels during their terms. <br>
+        Brazil's history of slavery, which ended in 1888, left structural inequalities that persist today. The lack of post-abolition integration measures excluded Black individuals from access to land, education, and economic opportunities. The ideology of "racial democracy" (Twine, 1997) has since obscured systemic discrimination, perpetuating disparities in education, policymaking, and violence. Since 2012, Black individuals have faced violence at twice the rate of white individuals, despite comprising around 50% of the population (IBGE). <br>
+        By investigating whether Black mayors influence these dynamics, this study addresses an important gap in the literature. It seeks to determine whether their leadership can mitigate structural inequalities and reduce violence, shedding light on the broader implications of representation. Understanding these effects is crucial to addressing historical injustices and exploring the role of political representation in fostering societal change.
+    </p>
+
+    <div id="vis"></div> <!-- Primeiro gráfico -->
+    <script>
+        vegaEmbed("#vis", "../../data/fig1.json").catch(console.error);
+    </script>
+
+    <h2 style="margin-bottom: 0px; margin-top: 20px;">
+        Data & Replication:
+    </h2>
+    <p style="text-align: justify;">
+        The dataset used in this project was sourced from two primary repositories: the Brazilian Superior Electoral Court (TSE) for municipal election results and DATASUS for detailed mortality records. The electoral data provided information about mayoral candidates, their race, and the election outcomes across Brazil’s 5,570 municipalities. The mortality data allowed us to analyze violence rates, specifically homicides, by race and geographic location over time. These two datasets were merged using municipal codes as unique identifiers. <br>
+        The data was accessed through publicly available APIs and bulk downloads provided by TSE and DATASUS. To ensure replication and automation, all data cleaning and processing steps were scripted in R, using libraries such as dplyr for data manipulation and tidyr for reshaping datasets. Automated scripts enabled the extraction, cleaning, and merging of over a decade of data efficiently. <br>
+        One challenge was dealing with inconsistencies in variable names and formats between datasets, particularly race categorizations and municipal identifiers. These issues were resolved through cross-referencing metadata and standardizing identifiers. <br>
+        All steps in the workflow, including downloading, cleaning, and analysis, were documented and can be replicated through the provided scripts. This automation ensures transparency, reproducibility, and facilitates updates if new data becomes available.
+    </p>
+
+    <div id="histogram"></div> <!-- Segundo gráfico -->
+    <script>
+        vegaEmbed("#histogram", "../../data/histogram.json").catch(console.error);
+    </script>
+</body>
+
+</html>
+
