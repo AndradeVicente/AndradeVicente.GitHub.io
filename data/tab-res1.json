@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"Bandwidth": 0.050, "Coefficient": 22.80, "P_value": 0.10, "Obs_White": 160, "Obs_Black": 161},
+        {"Bandwidth": 0.100, "Coefficient": 19.69, "P_value": 0.06, "Obs_White": 306, "Obs_Black": 306},
+        {"Bandwidth": 0.157, "Coefficient": 9.20, "P_value": 0.26, "Obs_White": 472, "Obs_Black": 452},
+        {"Bandwidth": 0.250, "Coefficient": 6.08, "P_value": 0.36, "Obs_White": 621, "Obs_Black": 598}
+      ]
+    },
+    "mark": "text",
+    "encoding": {
+      "x": {
+        "field": "Bandwidth",
+        "type": "nominal",
+        "axis": {
+          "title": null,
+          "labels": false,
+          "ticks": false
+        }
+      },
+      "y": {
+        "field": "row",
+        "type": "ordinal",
+        "axis": {
+          "title": null,
+          "labels": false,
+          "ticks": false
+        }
+      },
+      "text": {
+        "field": "Coefficient",
+        "type": "quantitative",
+        "format": ".2f"
+      }
+    },
+    "config": {
+      "text": {
+        "font": "Arial",
+        "fontSize": 12,
+        "align": "left",
+        "baseline": "middle"
+      }
+    }
+  }
+  

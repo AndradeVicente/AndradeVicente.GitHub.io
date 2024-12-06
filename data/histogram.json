@@ -30,7 +30,9 @@
           "labelFont": "Roboto Condensed",
           "labelColor": "#065f46",
           "titleFont": "Roboto Condensed",
-          "titleColor": "#065f46"
+          "titleColor": "#065f46",
+          "titleFontSize": 18,
+          "labelFontSize": 14
         }
       },
       "y": {

@@ -1,0 +1,57 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"bandwidth": 0.05, "beta": 22.7964},
+        {"bandwidth": 0.15, "beta": 9.6103},
+        {"bandwidth": 0.25, "beta": 6.0768},
+        {"bandwidth": 0.35, "beta": 5.6268},
+        {"bandwidth": 0.45, "beta": 4.5566},
+        {"bandwidth": 0.55, "beta": 4.5495},
+        {"bandwidth": 0.65, "beta": 3.4499},
+        {"bandwidth": 0.75, "beta": 2.2467},
+        {"bandwidth": 0.85, "beta": 1.1069},
+        {"bandwidth": 0.95, "beta": -0.446}
+      ]
+    },
+    "mark": {
+      "type": "line",
+      "point": true,
+      "strokeWidth": 2
+    },
+    "encoding": {
+      "x": {
+        "field": "bandwidth",
+        "type": "quantitative",
+        "axis": {
+          "title": "Bandwidth",
+          "grid": false
+        },
+        "scale": {"domain": [0, 1], "nice": true}
+      },
+      "y": {
+        "field": "beta",
+        "type": "quantitative",
+        "axis": {
+          "title": "Coefficient",
+          "grid": true
+        }
+      }
+    },
+    "title": {
+      "text": "Coefficient Sensitivity to Margin",
+      "subtitle": "Visualization by Vandrade",
+      "anchor": "start",
+      "fontSize": 18
+    },
+    "config": {
+      "background": "#F8F3F0",
+      "axis": {
+        "titleFont": "Arial",
+        "labelFont": "Arial",
+        "labelColor": "#4b4b4b"
+      },
+      "line": {"color": "#ff7f0e"}
+    }
+  }
+  

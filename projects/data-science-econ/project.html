@@ -26,10 +26,9 @@
         Introduction:
     </h2>
     <p style="text-align: justify;">
-        Political representation can influence societal outcomes, yet the impact of Black leadership remains underexplored. Brazil, with its 5,570 municipalities and extensive public data from TSE and DATASUS, provides a valuable setting for such studies. This work examines whether the election of Black mayors affects violence levels during their terms. <br>
-        Brazil's history of slavery, which ended in 1888, left structural inequalities that persist today. The lack of post-abolition integration measures excluded Black individuals from access to land, education, and economic opportunities. The ideology of "racial democracy" (Twine, 1997) has since obscured systemic discrimination, perpetuating disparities in education, policymaking, and violence. Since 2012, Black individuals have faced violence at twice the rate of white individuals, despite comprising around 50% of the population (IBGE). <br>
-        By investigating whether Black mayors influence these dynamics, this study addresses an important gap in the literature. It seeks to determine whether their leadership can mitigate structural inequalities and reduce violence, shedding light on the broader implications of representation. Understanding these effects is crucial to addressing historical injustices and exploring the role of political representation in fostering societal change.
-    </p>
+        This project investigates the impact of Black mayoral leadership on homicide rates in Brazilian municipalities, addressing the question: Does electing a Black mayor influence violence levels during their term? Brazil’s history of slavery, which brought millions of enslaved Africans to the country, and its subsequent legacy of structural inequality motivate this inquiry. The abolition of slavery in 1888 left formerly enslaved individuals without access to land, education, or economic opportunities, perpetuating systemic disparities (Twine, 1997). Racial inequality remains evident today, with Black individuals disproportionately affected by violent crime, making up twice as many victims as White individuals despite representing half of Brazil’s population (IBGE, 2022).
+        This study focuses on the 2016 municipal elections, the only cycle with comprehensive data on candidates' race and homicide rates during their term. Only municipalities where the top two candidates were a Black and a White male were included in the analysis. Using a regression discontinuity design (RDD), the study employs the margin of victory of Black candidates as the running variable to estimate causal effects. The broader aim is to contribute to the literature on political representation, exploring the underexamined relationship between race, leadership, and structural inequality, particularly its influence on violent crime outcomes.
+        </p>
 
     <div id="vis"></div> <!-- Primeiro gráfico -->
     <script>
@@ -40,16 +39,69 @@
         Data & Replication:
     </h2>
     <p style="text-align: justify;">
-        The dataset used in this project was sourced from two primary repositories: the Brazilian Superior Electoral Court (TSE) for municipal election results and DATASUS for detailed mortality records. The electoral data provided information about mayoral candidates, their race, and the election outcomes across Brazil’s 5,570 municipalities. The mortality data allowed us to analyze violence rates, specifically homicides, by race and geographic location over time. These two datasets were merged using municipal codes as unique identifiers. <br>
-        The data was accessed through publicly available APIs and bulk downloads provided by TSE and DATASUS. To ensure replication and automation, all data cleaning and processing steps were scripted in R, using libraries such as dplyr for data manipulation and tidyr for reshaping datasets. Automated scripts enabled the extraction, cleaning, and merging of over a decade of data efficiently. <br>
-        One challenge was dealing with inconsistencies in variable names and formats between datasets, particularly race categorizations and municipal identifiers. These issues were resolved through cross-referencing metadata and standardizing identifiers. <br>
-        All steps in the workflow, including downloading, cleaning, and analysis, were documented and can be replicated through the provided scripts. This automation ensures transparency, reproducibility, and facilitates updates if new data becomes available.
-    </p>
+        The analysis draws on two primary datasets: electoral data from the Brazilian Superior Electoral Court (TSE) and mortality records from DATASUS. The electoral data provides detailed information on mayoral candidates, including race, gender, age, and election outcomes. The mortality data includes information on deaths categorized by cause, based on ICD-10 codes, allowing a focus on homicides (X85-Y09).
+        The study centers on the 2016 municipal elections, the only cycle with complete data on candidates’ race and matching homicide records for their term. To ensure comparability, only first-round elections where the two top candidates were a Black and a White male were included. This specific filter aimed to isolate cases where racial representation could have a direct and measurable influence on violence levels, narrowing the dataset to 1,555 municipalities.
+        The datasets were merged using municipal codes as unique identifiers. To facilitate reproducibility, data collection and cleaning were automated in R, leveraging scripts to standardize formats, handle missing data, and extract relevant entries. By applying rigorous filtering criteria and ensuring consistent data integration, the processed dataset provided a robust foundation for analyzing the causal relationship between Black mayoral leadership and homicide rates in Brazilian municipalities.
+     </p>
 
-    <div id="histogram"></div> <!-- Segundo gráfico -->
+    <div id="histogram"></div> <!-- Segundo gráfico  -->
     <script>
         vegaEmbed("#histogram", "../../data/histogram.json").catch(console.error);
     </script>
+
+    <h2 style="margin-bottom: 0px; margin-top: 20px;">
+        Data & Replication:
+    </h2>
+    <p style="text-align: justify;">
+        The econometric modeling used a regression discontinuity design (RDD) to estimate the causal effect of electing a Black mayor on homicide rates. The key identification assumption was that in closely contested elections, the margin of victory is exogenous, meaning the race of the mayor was unlikely to have significantly influenced the outcome. This allowed the election result to be treated as an independent variable, enabling causal inference. To validate this assumption, the analysis tested for continuity in pre-election covariates, such as socioeconomic factors and historical homicide rates, around the cut-off.
+        The model also incorporated microeconomic theory, drawing on Bursztyn et al.’s (2017) utility framework. It posited that electing a Black mayor could shift social norms, reducing discriminatory attitudes. Citizens' utility was modeled as a balance between the cost of misaligned beliefs with societal norms and the benefits of aligning with inclusivity, theorizing an indirect effect on violence reduction.
+        Determining the optimal bandwidth was critical to balance bias and variance, while specifying the polynomial function for the running variable required rigorous testing to avoid overfitting. These steps ensured a robust framework for estimating the impact of Black political representation on violence, grounded in both theoretical and econometric rigor.
+            </p>
+
+    <h2 style="margin-bottom: 0px; margin-top: 20px;">
+        Conclusion & Robustness:
+    </h2>
+    <p style="text-align: justify;">
+        The analysis revealed that municipalities with Black mayors experienced a slight increase in homicides, estimated at 9.2 more per 100,000 inhabitants during the mayor’s term. However, this result was not statistically significant (p = 0.26), suggesting the observed effect might not be directly attributable to Black mayoral leadership. Despite the lack of statistical significance, it remains essential to test the robustness of these findings to ensure they are not driven by model misspecifications or data issues. Robustness checks help validate the reliability of the results and ensure that any observed patterns, even if insignificant, are grounded in a sound empirical framework. </p>
+       
+        <div id="vis">
+            <img src="/projects/data-science-econ/images/rdplot_1.png" alt="Regression Discontinuity Plot" width="750">
+        </div>      
+
+        <div id="vis">
+            <img src="/projects/data-science-econ/images/tabela-principal.png" alt="Regression Discontinuity Plot" width="500">
+        </div>
+
+    <h3 style="margin-bottom: 0px; margin-top: 20px;">
+            Placebo Test:
+    </h3>
+    <p style="text-align: justify;">
+        The RDD model was applied using pre-treatment homicide rates (from the previous term) as the dependent variable. The result was close to zero, with a p-value of 0.9, supporting the hypothesis that the observed differences were linked to the mayor's race rather than pre-existing trends in violence.
+    </p>
+
+        <div id="vis">
+            <img src="/projects/data-science-econ/images/placebo.png" alt="Regression Discontinuity Plot" width="500">
+        </div>
+
+    <h3 style="margin-bottom: 0px; margin-top: 20px;">
+        Sensitivity Analysis:
+    </h3>
+    <p style="text-align: justify;">
+        The effect of varying the bandwidth around the margin of victory was tested. Narrower bandwidths showed a more pronounced effect, while wider bandwidths diluted the treatment effect, consistent with the Local Average Treatment Effect (LATE). This pattern supports the reliability of the RDD model.
+    </p>
+    
+    <div class="container">
+        <div id="pvalue-chart" class="chart"></div>
+        <div id="coefficient-chart" class="chart"></div>
+    </div>
+    
+    <script>
+        vegaEmbed("#pvalue-chart", "../../data/sensibilidade-pvalor.json").catch(console.error);
+        vegaEmbed("#coefficient-chart", "../../data/sensibilidade-banda.json").catch(console.error);
+    </script>
+    
+
+
 </body>
 
 </html>

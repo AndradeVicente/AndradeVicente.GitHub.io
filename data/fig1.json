@@ -30,8 +30,8 @@
     "height": 400,
     "mark": {
       "type": "line",
-      "strokeWidth": 1.5
-    },
+      "strokeWidth": 4
+        },
     "encoding": {
       "x": {
         "field": "Ano",
@@ -41,7 +41,8 @@
           "values": [2012, 2014, 2016, 2018, 2020, 2022],
           "labelAngle": 0,
           "labelFont": "Franklin-Regular",
-          "labelColor": "#065f46"
+          "labelColor": "#065f46",
+          "labelFontSize": 18
         }
       },
       "y": {
@@ -53,7 +54,8 @@
           "titleColor": "#065f46",
           "labelFont": "Franklin-Regular",
           "labelColor": "#065f46",
-          "grid": true
+          "grid": true,
+          "titleFontSize": 20
         },
         "scale": {
           "domain": [0, 50]
@@ -69,7 +71,7 @@
         "legend": {
           "title": null,
           "orient": "top",
-          "labelFontSize": 12,
+          "labelFontSize": 16,
           "labelFont": "Franklin-Regular",
           "labelExpr": "datum.label === 'taxa_nao_negros' ? 'White' : 'Black '"
         }

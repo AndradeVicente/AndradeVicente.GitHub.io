@@ -43,11 +43,11 @@ h1 {
     color: #065f46;
     background-color: #F8F3F0;
     max-width: 800px;
-    font-size: 16px;
+    font-size: 20px;
   }
   
     /* Centraliza o gráfico horizontalmente e verticalmente */
-#vis {
+#vis, #histogram, #pvalue-chart, #coefficient-chart {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     margin: 0 auto;         /* Garante a centralização horizontal */
@@ -55,11 +55,16 @@ h1 {
     width: auto;            /* Ajusta a largura */
 }
 
-    /* Centraliza o gráfico horizontalmente e verticalmente */
-#histogram {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    margin: 0 auto;         /* Garante a centralização horizontal */
-    height: auto;          /* Ajusta para ocupar toda a altura da tela */
-    width: auto;   
+.container {
+  display: flex; /* Define o layout como flexível */
+  justify-content: space-around; /* Espaço ao redor dos gráficos */
+  align-items: flex-start; /* Alinha os gráficos pelo topo */
+  gap: 20px; /* Espaçamento entre os gráficos */
+  margin: 20px auto; /* Margem para centralizar o contêiner */
+  max-width: 100%; /* Evita que ultrapasse a largura da página */
+}
+
+.chart {
+  width: 50%; /* Cada gráfico ocupa metade do contêiner */
+  height: auto; /* Ajusta a altura automaticamente */
 }
